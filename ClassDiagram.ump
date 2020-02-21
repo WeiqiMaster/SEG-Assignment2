@@ -1,0 +1,237 @@
+class Driver
+{
+   name;
+  int employeeNumber;
+  seniority;
+  int workingHours;
+  public void assignRoute(Route r){
+
+}
+* -- 1 Route;
+  0..* -- * Incident;
+}
+
+class Passenger
+{
+  name;
+  int customerNumber;
+  String[] routes;
+1 -- 1..* Payment;
+String[] checkRoute()
+  {
+    
+  }
+void pay(){
+
+}
+}
+
+class Route
+{
+   origin;
+   destination;
+  int number;
+  String[] stops;
+    int[] peakHours;
+}
+
+class PrestoCard
+{
+      isA PaymentMethod;
+double credit;
+  
+  private String sendNotification()
+  {
+    
+  }
+  
+  void addCredit()
+  {
+    
+  }
+    
+}
+
+class NormalBus
+{
+  isA Vehicle;
+}
+
+class ExtendedBus
+{
+    isA Vehicle;
+}
+
+class DoubleDecker
+{
+  isA Vehicle;
+}
+
+class Train
+{
+  isA Vehicle;
+}
+
+class PaperTicket
+{
+    isA PaymentMethod;
+double fee;
+}
+
+class PaymentMethod
+{
+  }
+
+class Pass
+{
+  int remainTimes;
+isA PaymentMethod;
+}
+
+class Vehicle
+{
+  int id;
+   currentStop;
+int requiredLevel;
+1 -- * Passenger;
+  0..1 -- 1 Driver;
+  * -- 1 Route;
+  }
+
+class Incident
+{
+  description;
+  Route route;
+}
+
+class Accident
+{
+  isA Incident;
+}
+
+class Fine
+{
+    isA Incident;
+int amount;
+}
+
+class Payment
+{
+  double amount;
+time time;
+1..* -- 1 PaymentMethod;
+  * -- 1 Route;
+}
+
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class Driver
+{
+  position 11 127 170 126;
+  position.association Driver__Incident 160,144 0,4;
+}
+
+class Passenger
+{
+  position 670 45 167 143;
+  position.association Passenger__Payment 167,66 46,0;
+}
+
+class Route
+{
+  position 14 362 149 144;
+  position.association Route__Driver 76,0 86,125;
+  }
+
+class PrestoCard
+{
+  position 545 460 210 110;
+}
+
+class Driver
+{
+  position 11 127 170 126;
+  position.association Route__Driver 80,125 83,0;
+  position.association Driver__Incident 160,144 0,4;
+  position.association Driver__Route 28,144 30,0;
+}
+
+class Passenger
+{
+  position 670 45 167 143;
+}
+
+class Route
+{
+  position 14 362 149 144;
+}
+
+class NormalBus
+{
+  position 241 244 109 58;
+}
+
+class ExtendedBus
+{
+  position 321 175 109 39;
+  }
+
+class DoubleDecker
+{
+  position 516 196 109 39;
+}
+
+class Train
+{
+  position 398 227 109 39;
+}
+
+class PaperTicket
+{
+  position 934 458 109 76;
+}
+
+class PaymentMethod
+{
+  position 730 333 109 74;
+}
+
+class Pass
+{
+  position 769 471 138 76;
+}
+
+class Vehicle
+{
+  position 269 12 169 107;
+  position.association Vehicle__Passenger 140,107 75,0;
+  position.association Vehicle__Driver 3,107 124,0;
+  position.association Passenger__Vehicle 170,90 0,10;
+  position.association Driver__Vehicle 0,91 169,0;
+  position.association Route__Vehicle 0,10 149,0;
+}
+
+class Incident
+{
+  position 327 404 148 74;
+}
+
+class Accident
+{
+  position 274 578 109 58;
+}
+
+class Fine
+{
+  position 404 571 109 76;
+}
+
+class Payment
+{
+  position 898 177 109 92;
+  position.association Payment__PaymentMethod 0,99 159,0;
+  position.association Payment__Route 0,46 150,25;
+}
